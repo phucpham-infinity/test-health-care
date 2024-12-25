@@ -21,7 +21,8 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "typeRoots": ["./node_modules/@types", "./src/vite-env.d.ts"]
   },
   "include": ["src"]
 }

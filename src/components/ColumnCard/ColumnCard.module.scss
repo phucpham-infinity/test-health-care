@@ -1,0 +1,80 @@
+@use '@/styles/variables' as *;
+
+.card {
+  position: relative;
+  width: 234px;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+
+  .image {
+    width: 234px;
+    height: 145px;
+    object-fit: cover;
+    position: relative;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 115px;
+    left: 0;
+    background: $primary-300; /* Yellow background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 $spacing-xs;
+
+    .date {
+      color: #fff;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px;
+    }
+  }
+
+  .content {
+    padding: $spacing-xs 0;
+
+    .description {
+      width: 232px;
+      height: 48px;
+      flex-shrink: 0;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      color: $dark-500;
+
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 22px; /* 146.667% */
+      letter-spacing: 0.075px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      height: 24px;
+
+      justify-content: flex-start;
+      align-items: center;
+      gap: $spacing-xxs;
+
+      .tag {
+        color: $primary-400;
+
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 22px; /* 183.333% */
+        letter-spacing: 0.06px;
+      }
+    }
+  }
+}

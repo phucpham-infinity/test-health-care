@@ -1,0 +1,18 @@
+@use '@/styles/variables' as *;
+
+.menu {
+  width: 280px;
+  height: 72px;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding-top: $spacing-lg;
+  padding-bottom: $spacing-lg;
+  padding-left: $spacing-xl;
+  background: $gray-400;
+
+  color: #fff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26px;
+}

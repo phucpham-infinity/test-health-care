@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Routes,
@@ -7,20 +7,20 @@ import {
 } from 'react-router-dom'
 import { routesConfig } from './routesConfig'
 import { useAuth } from '@/hooks/useAuth'
+import LazyWrapper from '@/components/common/LazyWrapper'
 
-const LazyLoadComponent = (component: string) => {
-  return React.lazy(() => import(`@/pages/${component}`))
+import NotFound from '@/pages/NotFound/NotFound'
+
+export const componentMap = {
+  Home: () => import('@/pages/public/Home/Home'),
+  MyRecord: () => import('@/pages/private/MyRecord/MyRecord')
 }
 
-// Wrapper Component to handle Suspense
-const LazyWrapper: React.FC<{ component: React.LazyExoticComponent<any> }> = ({
-  component: Component
-}) => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Component />
-    </Suspense>
-  )
+const LazyLoadComponent = (component: string) => {
+  const importFn = componentMap[component]
+  if (!importFn)
+    throw new Error(`Component ${component} not found in componentMap`)
+  return React.lazy(importFn)
 }
 
 export const AppRoutes = () => {
@@ -57,7 +57,7 @@ export const AppRoutes = () => {
           )
         })}
 
-        <Route path="*" element={<h1>404 - Not Found</h1>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   )

@@ -1,0 +1,27 @@
+@use '@/styles/variables' as *;
+
+.button {
+  width: 296px;
+  height: 56px;
+
+  padding: $spacing-sm $spacing-xxs;
+  background: $primary-gradient;
+  color: white;
+  border: none;
+  border-radius: $spacing-xxs;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  color: #fff;
+
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26px;
+
+  &:hover {
+    background: $primary-gradient;
+  }
+}
