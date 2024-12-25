@@ -1,0 +1,26 @@
+// Colors
+$light: #FFFFFF;
+$dark-600: #000000;
+$dark-500: #333333;
+$gray-400: #CCCCCC;
+
+// Primary Colors
+$primary-300: #FFCC33;
+$primary-400: #FFBB00;
+$primary-500: #FFA500;
+
+// Secondary Colors
+$secondary-300: #77C3EC;
+
+// Gradient
+$primary-gradient: linear-gradient(90deg, $primary-300, $primary-400);
+
+// Base Spacing Scale
+$spacing-xxs: 4px;   // Extra Extra Small
+$spacing-xs: 8px;    // Extra Small
+$spacing-sm: 12px;   // Small
+$spacing-md: 16px;   // Medium
+$spacing-lg: 24px;   // Large
+$spacing-xl: 32px;   // Extra Large
+$spacing-xxl: 48px;  // Extra Extra Large
+
