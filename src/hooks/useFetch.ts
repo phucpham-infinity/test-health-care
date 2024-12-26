@@ -3,7 +3,16 @@ import { useState, useCallback } from 'react'
 type Options = {
   method?: string
   headers?: HeadersInit
-  body?: BodyInit | null
+}
+
+const buildQueryParams = (
+  params: Record<string, string | number | boolean>
+) => {
+  const query = new URLSearchParams()
+  Object.entries(params).forEach(([key, value]) => {
+    query.append(key, String(value))
+  })
+  return query.toString()
 }
 
 export const useFetch = <T = any>(url?: string, options: Options = {}) => {
@@ -14,12 +23,30 @@ export const useFetch = <T = any>(url?: string, options: Options = {}) => {
   const stableOptions = JSON.stringify(options) // Serialize options for consistent comparison
 
   const fetchData = useCallback(
-    async (_url?: string) => {
+    async (
+      queryParams?: Record<string, string | number | boolean>,
+      body?: Record<string, any>
+    ) => {
       setIsLoading(true)
       setError(null)
 
       try {
-        const response = await fetch(_url ?? url, JSON.parse(stableOptions))
+        let fullUrl = url
+        if (queryParams) {
+          const queryString = buildQueryParams(queryParams)
+          fullUrl = `${fullUrl}?${queryString}`
+        }
+
+        const fetchOptions: RequestInit = {
+          ...JSON.parse(stableOptions),
+          body: body ? JSON.stringify(body) : null,
+          headers: {
+            'Content-Type': 'application/json',
+            ...(options.headers || {})
+          }
+        }
+
+        const response = await fetch(fullUrl as string, fetchOptions)
         if (!response.ok) {
           throw new Error(`Error ${response.status}: ${response.statusText}`)
         }

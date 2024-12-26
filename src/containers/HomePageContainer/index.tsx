@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ArticleGrid from '@/components/ArticleGrid'
 import Button from '@/components/Button'
 import HeaderCategories from '@/components/HeaderCategories'
@@ -7,6 +7,10 @@ import { useFetch } from '@/hooks/useFetch.ts'
 import Loading from '@/components/common/Loading'
 
 const HomePageContainer = () => {
+  const [articles, setArticles] = useState([])
+  const [articlesPage, setArticlesPage] = useState(1)
+  const [categoryId, setCategoryId] = useState(1)
+
   const {
     data: dataCategories,
     isLoading,
@@ -27,17 +31,33 @@ const HomePageContainer = () => {
 
   useEffect(() => {
     if (dataCategories?.length) {
-      fetchDataArticles(`/api/articles?categoryId=${dataCategories[0].id}`)
+      setArticlesPage(1)
+      setCategoryId(dataCategories[0].id)
     }
   }, [dataCategories])
 
-  if (isLoading) return <Loading />
-  if (error) return <div>Error...</div>
+  useEffect(() => {
+    if (categoryId && articlesPage) {
+      fetchDataArticles({ categoryId: categoryId, page: articlesPage })
+    }
+  }, [categoryId, articlesPage])
+
+  useEffect(() => {
+    if (dataArticles?.length) {
+      if (articles?.length === 0) setArticles(dataArticles)
+      else setArticles([...articles, ...dataArticles])
+    }
+  }, [dataArticles])
 
   const handleCategoryClick = (category: any) => {
-    fetchDataArticles(`/api/articles?categoryId=${category.id}`)
+    setCategoryId(category.id)
+    setArticlesPage(1)
+    setArticles([])
   }
 
+  const handleLoadMore = () => {
+    setArticlesPage(articlesPage + 1)
+  }
   return (
     <>
       <HeaderCategories
@@ -45,18 +65,17 @@ const HomePageContainer = () => {
         categories={dataCategories}
       />
       {(() => {
-        if (isLoadingArticles) {
+        if (isLoadingArticles && !articles?.length) {
           return <Loading />
         }
         if (errorArticles) {
           return <div>Error...</div>
         }
-        return <ArticleGrid articles={dataArticles} />
+        return <ArticleGrid articles={articles} />
       })()}
-      <Button
-        label="コラムをもっと見る"
-        onClick={() => console.log('clicked')}
-      />
+      {isLoading && <Loading />}
+      {error && <div>Error...</div>}
+      <Button label="コラムをもっと見る" onClick={handleLoadMore} />
       <ScrollButton />
     </>
   )
