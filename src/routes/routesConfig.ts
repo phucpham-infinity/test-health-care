@@ -5,8 +5,13 @@ export const routesConfig = [
     isPrivate: false
   },
   {
+    path: '/top-page',
+    component: 'TopPage',
+    isPrivate: false
+  },
+  {
     path: '/my-record',
     component: 'MyRecord',
-    isPrivate: true
+    isPrivate: false
   }
 ]

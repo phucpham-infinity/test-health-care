@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,7 +13,8 @@ import NotFound from '@/pages/NotFound/NotFound'
 
 export const componentMap = {
   Home: () => import('@/pages/public/Home'),
-  MyRecord: () => import('@/pages/private/MyRecord')
+  MyRecord: () => import('@/pages/private/MyRecord'),
+  TopPage: () => import('@/pages/public/TopPage')
 }
 
 const LazyLoadComponent = (component: string) => {

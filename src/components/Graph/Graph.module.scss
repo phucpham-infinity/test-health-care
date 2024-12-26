@@ -1,0 +1,26 @@
+.graph-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.graph {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+text {
+  font-family: Arial, sans-serif;
+}
+
+line {
+  stroke: #444;
+}
+
+circle {
+  cursor: pointer;
+}

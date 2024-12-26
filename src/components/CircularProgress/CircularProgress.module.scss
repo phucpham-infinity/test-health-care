@@ -1,0 +1,64 @@
+@use '@/styles/variables' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 230px;
+  height: 230px;
+  z-index: 2;
+}
+
+.svg {
+  width: 200px;
+  height: 200px;
+  box-sizing: border-box;
+}
+
+.backgroundCircle {
+  stroke: #333;
+  opacity: 0.2;
+}
+
+.progressCircle {
+  stroke: white;
+  transition: stroke-dashoffset 0.5s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  filter: drop-shadow(0px 0px 5px #FC7400);
+}
+
+.overlay {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+
+  span {
+    &:first-of-type {
+      color: #FFF;
+      text-align: center;
+      text-shadow: 0 0 6px #FC7400;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+    }
+    &:last-of-type {
+      color: #FFF;
+      text-align: center;
+      text-shadow: 0 0 6px #FCA500;
+      font-family: Inter;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px;
+    }
+  }
+}

@@ -6,7 +6,7 @@ import ScrollButton from '@/components/ScrollButton'
 import { useFetch } from '@/hooks/useFetch.ts'
 import Loading from '@/components/common/Loading'
 
-const HomePageContainer = () => {
+const TopPageContainer = () => {
   const [articles, setArticles] = useState([])
   const [articlesPage, setArticlesPage] = useState(1)
   const [categoryId, setCategoryId] = useState(1)
@@ -81,4 +81,4 @@ const HomePageContainer = () => {
   )
 }
 
-export default HomePageContainer
+export default TopPageContainer

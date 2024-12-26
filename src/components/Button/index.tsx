@@ -3,7 +3,7 @@ import styles from './Button.module.scss'
 
 interface ButtonProps {
   label: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 const Button: React.FC<ButtonProps> = ({ label, onClick }) => {

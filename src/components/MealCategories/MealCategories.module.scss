@@ -1,0 +1,30 @@
+.categories {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 24px;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #ffc07f, #ff9234);
+  border-radius: 10px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}

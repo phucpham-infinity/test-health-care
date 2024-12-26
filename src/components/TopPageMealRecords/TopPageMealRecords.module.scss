@@ -1,0 +1,15 @@
+@use '@/styles/variables' as *;
+
+.top_page_meal_records {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  padding-bottom: $spacing-3xl;
+
+  .load_more {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
