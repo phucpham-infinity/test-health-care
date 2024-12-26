@@ -2,14 +2,31 @@ import classNames from 'classnames'
 import MealCategories from '@/components/MealCategories'
 import IconKnife from '@/components/Icons/IconKnife.tsx'
 import IconCup from '@/components/Icons/IconCup.tsx'
-import MealRecord from '@/components/MealRecord'
+import MealRecord, { IMeal } from '@/components/MealRecord'
 import Button from '@/components/Button'
 import styles from './TopPageMealRecords.module.scss'
+import React from 'react'
+import Loading from '@/components/common/Loading'
 
-const TopPageMealRecords = () => {
+interface TopPageMealRecordsProps {
+  onChangeMealType: (type: string) => void
+  handleLoadMore?: () => void
+  meals: IMeal[]
+  isLoading?: boolean
+  error?: any
+}
+
+const TopPageMealRecords: React.FC<TopPageMealRecordsProps> = ({
+  onChangeMealType,
+  meals,
+  isLoading,
+  error,
+  handleLoadMore
+}) => {
   return (
     <div className={classNames('container', styles.top_page_meal_records)}>
       <MealCategories
+        onChangeMealType={onChangeMealType}
         categories={[
           {
             id: 1,
@@ -33,42 +50,11 @@ const TopPageMealRecords = () => {
           }
         ]}
       />
-      <MealRecord
-        meals={[
-          {
-            id: 1,
-            imageUrl: 'https://picsum.photos/id/33/200',
-            time: '05.21',
-            type: 'Morning'
-          },
-          {
-            id: 2,
-            imageUrl: 'https://picsum.photos/id/33/200',
-            time: '05.21',
-            type: 'Morning'
-          },
-          {
-            id: 3,
-            imageUrl: 'https://picsum.photos/id/33/200',
-            time: '05.21',
-            type: 'Morning'
-          },
-          {
-            id: 4,
-            imageUrl: 'https://picsum.photos/id/33/200',
-            time: '05.21',
-            type: 'Morning'
-          },
-          {
-            id: 5,
-            imageUrl: 'https://picsum.photos/id/33/200',
-            time: '05.21',
-            type: 'Morning'
-          }
-        ]}
-      />
+      <MealRecord meals={meals} />
+      {isLoading && <Loading />}
+      {error && <div>Error...</div>}
       <div className={styles.load_more}>
-        <Button label="コラムをもっと見る" />
+        <Button label="コラムをもっと見る" onClick={handleLoadMore} />
       </div>
     </div>
   )

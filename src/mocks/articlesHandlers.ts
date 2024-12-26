@@ -47,7 +47,7 @@ const articlesByCategory = {
   }))
 }
 
-export const handlers = [
+export const articlesHandlers = [
   http.get('/api/categories', () => {
     return HttpResponse.json(categories)
   }),

@@ -11,17 +11,23 @@ interface Category {
 
 interface MealCategoriesProps {
   categories: Category[]
+  onChangeMealType: (type: string) => void
 }
 
-const MealCategories: React.FC<MealCategoriesProps> = ({ categories }) => {
+const MealCategories: React.FC<MealCategoriesProps> = ({
+  categories,
+  onChangeMealType
+}) => {
   return (
     <div className={styles.categories}>
       {categories.map((category) => (
-        <Hexagon
-          key={category.id}
-          icon={category.icon}
-          label={category.label}
-        />
+        <div onClick={() => onChangeMealType(category.label)}>
+          <Hexagon
+            key={category.id}
+            icon={category.icon}
+            label={category.label}
+          />
+        </div>
       ))}
     </div>
   )

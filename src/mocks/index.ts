@@ -1,4 +1,5 @@
 import { setupWorker } from 'msw/browser'
-import {handlers} from "@/mocks/handlers.ts";
+import { articlesHandlers } from '@/mocks/articlesHandlers.ts'
+import { mealsHandlers } from '@/mocks/mealsHandlers.ts'
 
-export const mockServer = setupWorker(...handlers)
+export const mockServer = setupWorker(...articlesHandlers, ...mealsHandlers)
