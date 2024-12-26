@@ -1,0 +1,44 @@
+@use '@/styles/variables' as *;
+
+.header_categories {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .category {
+    width: 216px;
+    height: 144px;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+
+    background-color: $dark-600;
+    gap: $spacing-xs;
+
+    h3 {
+      color: #ffcc21;
+
+      text-align: center;
+      font-family: Inter;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px;
+      letter-spacing: 0.11px;
+    }
+
+    p {
+      color: #fff;
+
+      text-align: center;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 26px;
+    }
+  }
+}

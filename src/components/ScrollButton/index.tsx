@@ -1,10 +1,33 @@
 // components/TopButton.tsx
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './ScrollButton.module.scss'
 
 const ScrollButton: React.FC = () => {
-  return (
-    <div className={styles.scroll_button}>
+  const [isVisible, setIsVisible] = useState(false)
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 300) {
+      setIsVisible(true)
+    } else {
+      setIsVisible(false)
+    }
+  }
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility)
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility)
+    }
+  }, [])
+  return !isVisible ? null : (
+    <div onClick={scrollToTop} className={styles.scroll_button}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={48}

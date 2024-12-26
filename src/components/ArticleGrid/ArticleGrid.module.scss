@@ -1,0 +1,7 @@
+@use '@/styles/variables' as *;
+
+.article_grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

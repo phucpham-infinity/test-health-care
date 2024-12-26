@@ -1,0 +1,12 @@
+@use '@/styles/variables' as *;
+
+.home_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding-top: 56px;
+  padding-bottom: 56px;
+  gap: 56px;
+}
