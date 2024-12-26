@@ -1,6 +1,5 @@
 import { AppRoutes } from './routes'
 import { AuthProvider } from '@/context/AuthContext'
-
 import '@/styles/global.scss'
 
 const App = () => {

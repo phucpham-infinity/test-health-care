@@ -18,15 +18,16 @@ interface ArticleGridProps {
 const ArticleGrid: React.FC<ArticleGridProps> = ({ articles }) => {
   return (
     <div className={styles.article_grid}>
-      {articles.map((article) => (
-        <ColumnCard
-          key={article.id}
-          date={article.date + ' ' + article.time}
-          description={article.description}
-          imageUrl={article.imageUrl}
-          tags={article.tags}
-        />
-      ))}
+      {!!articles?.length &&
+        articles.map((article) => (
+          <ColumnCard
+            key={article.id}
+            date={article.date + ' ' + article.time}
+            description={article.description}
+            imageUrl={article.imageUrl}
+            tags={article.tags}
+          />
+        ))}
     </div>
   )
 }

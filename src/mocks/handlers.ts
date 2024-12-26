@@ -1,4 +1,9 @@
 import { http, HttpResponse } from 'msw'
+import {
+  getRandomDate,
+  getRandomNumber,
+  getRandomTime
+} from '@/mocks/helpers.ts'
 
 const categories = [
   { id: 1, title: 'RECOMMENDED COLUMN', subtitle: 'オススメ' },
@@ -8,37 +13,37 @@ const categories = [
 ]
 
 const articlesByCategory = {
-  1: Array.from({ length: 20 }, (_, i) => ({
+  1: Array.from({ length: 100 }, (_, i) => ({
     id: i + 1,
-    date: '2021.05.17',
-    time: '23:25',
-    title: `COLUMN Article ${i + 1}`,
-    tags: ['Column', 'DHA'],
-    imageUrl: 'https://via.placeholder.com/150'
+    date: getRandomDate(),
+    time: getRandomTime(),
+    description: `美容の基本を学ぼうダイエットの基本を学ぼうダイエットの基本を学ぼう`,
+    tags: ['ダイエット', '基本', 'DHA'],
+    imageUrl: `https://picsum.photos/id/${getRandomNumber()}/200`
   })),
-  2: Array.from({ length: 15 }, (_, i) => ({
+  2: Array.from({ length: 100 }, (_, i) => ({
     id: i + 1,
-    date: '2021.05.17',
-    time: '23:25',
-    title: `DIET Article ${i + 1}`,
-    tags: ['Diet', 'Health'],
-    imageUrl: 'https://via.placeholder.com/150'
+    date: getRandomDate(),
+    time: getRandomTime(),
+    description: `美容の基本を学ぼうダイエットの基本を学ぼうダイエットの基本を学ぼう`,
+    tags: ['ダイエット', '基本', 'DHA'],
+    imageUrl: `https://picsum.photos/id/${getRandomNumber()}/200`
   })),
-  3: Array.from({ length: 10 }, (_, i) => ({
+  3: Array.from({ length: 100 }, (_, i) => ({
     id: i + 1,
-    date: '2021.05.17',
-    time: '23:25',
-    title: `BEAUTY Article ${i + 1}`,
-    tags: ['Beauty', 'Care'],
-    imageUrl: 'https://via.placeholder.com/150'
+    date: getRandomDate(),
+    time: getRandomTime(),
+    description: `美容の基本を学ぼうダイエットの基本を学ぼうダイエットの基本を学ぼう`,
+    tags: ['ダイエット', '基本', 'DHA'],
+    imageUrl: `https://picsum.photos/id/${getRandomNumber()}/200`
   })),
-  4: Array.from({ length: 8 }, (_, i) => ({
+  4: Array.from({ length: 100 }, (_, i) => ({
     id: i + 1,
-    date: '2021.05.17',
-    time: '23:25',
-    title: `HEALTH Article ${i + 1}`,
-    tags: ['Health', 'Life'],
-    imageUrl: 'https://via.placeholder.com/150'
+    date: getRandomDate(),
+    time: getRandomTime(),
+    description: `美容の基本を学ぼうダイエットの基本を学ぼうダイエットの基本を学ぼう`,
+    tags: ['ダイエット', '基本', 'DHA'],
+    imageUrl: `https://picsum.photos/id/${getRandomNumber()}/200`
   }))
 }
 
@@ -48,12 +53,10 @@ export const handlers = [
   }),
 
   http.get('/api/articles', (req: any) => {
-    const categoryId = parseInt(
-      req.url.searchParams.get('categoryId') || '1',
-      10
-    )
-    const page = parseInt(req.url.searchParams.get('page') || '1', 10)
-    const limit = parseInt(req.url.searchParams.get('limit') || '4', 10)
+    const url = new URL(req.request?.url || '')
+    const categoryId = parseInt(url.searchParams.get('categoryId') || '1', 10)
+    const page = parseInt(url.searchParams.get('page') || '1', 10)
+    const limit = parseInt(url.searchParams.get('limit') || '8', 10)
 
     const articles = articlesByCategory[categoryId] || []
     const startIndex = (page - 1) * limit
