@@ -12,9 +12,9 @@ import LazyWrapper from '@/components/common/LazyWrapper'
 import NotFound from '@/pages/NotFound/NotFound'
 
 export const componentMap = {
-  Home: () => import('@/pages/public/Home'),
-  MyRecord: () => import('@/pages/public/MyRecord'),
-  TopPage: () => import('@/pages/public/TopPage')
+  ColumnPage: () => import('@/pages/public/ColumnPage'),
+  MyRecord: () => import('@/pages/private/MyRecord'),
+  TopPage: () => import('@/pages/private/TopPage')
 }
 
 const LazyLoadComponent = (component: string) => {

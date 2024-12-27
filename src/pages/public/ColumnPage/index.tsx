@@ -1,9 +1,9 @@
 import MainLayout from '@/layouts/MainLayout'
 import HomePageContainer from '@/containers/HomePageContainer'
 import classNames from 'classnames'
-import styles from './Home.module.scss'
+import styles from './ColumnPage.module.scss'
 
-const Home = () => {
+const ColumnPage = () => {
   return (
     <MainLayout>
       <div className={classNames('container', styles.home_page)}>
@@ -13,4 +13,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default ColumnPage

@@ -1,7 +1,7 @@
 export const routesConfig = [
   {
     path: '/',
-    component: 'Home',
+    component: 'ColumnPage',
     isPrivate: false
   },
   {
