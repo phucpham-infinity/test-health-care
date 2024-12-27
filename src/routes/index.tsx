@@ -12,6 +12,7 @@ import LazyWrapper from '@/components/common/LazyWrapper'
 import NotFound from '@/pages/NotFound/NotFound'
 
 export const componentMap = {
+  LoginPage: () => import('@/pages/public/LoginPage'),
   ColumnPage: () => import('@/pages/public/ColumnPage'),
   MyRecord: () => import('@/pages/private/MyRecord'),
   TopPage: () => import('@/pages/private/TopPage')

@@ -1,0 +1,24 @@
+@use '@/styles/variables' as *;
+
+.menu_drop_down {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  .menu_content {
+    position: absolute;
+    background-color: white;
+    z-index: 9;
+    width: 280px;
+    overflow: hidden;
+    top: 34px;
+    right: 4px;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -9,10 +9,16 @@
   padding-bottom: $spacing-lg;
   padding-left: $spacing-xl;
   background: $gray-400;
+  cursor: pointer;
 
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 300;
   line-height: 26px;
+
+  border-top: 1px solid #2E2E2E30;
+  &:hover {
+    background: $dark-500;
+  }
 }

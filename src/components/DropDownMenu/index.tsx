@@ -1,14 +1,14 @@
-// components/DropDownMenu.tsx
 import React from 'react'
 import styles from './DropDownMenu.module.scss'
 
 interface DropDownMenuProps {
   label: string
+  onClick?: () => void
 }
 
-const DropDownMenu: React.FC<DropDownMenuProps> = ({ label }) => {
+const DropDownMenu: React.FC<DropDownMenuProps> = ({ label, onClick }) => {
   return (
-    <div className={styles.menu}>
+    <div onClick={onClick} className={styles.menu}>
       <p>{label}</p>
     </div>
   )
