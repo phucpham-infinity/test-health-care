@@ -82,10 +82,10 @@ const data = [
 const Graph: React.FC<GraphProps> = ({ width, height }) => {
   return (
     <LineChart
-      width={width - 30}
+      width={width}
       height={height}
       data={data}
-      margin={{ top: 15, bottom: 15, right: 15, left: -15 }}
+      margin={{ top: 10, bottom: 10, right: 50, left: -15 }}
     >
       <Line type="monotone" dataKey="pv" stroke="#FFCC21" strokeWidth={2} />
       <Line type="monotone" dataKey="uv" stroke="#8FE9D0" strokeWidth={2} />

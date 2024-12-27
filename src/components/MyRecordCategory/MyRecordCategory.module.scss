@@ -1,0 +1,11 @@
+@use '@/styles/variables' as *;
+
+.record_category {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: $spacing-xxl;
+
+}

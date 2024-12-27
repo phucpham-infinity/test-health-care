@@ -28,10 +28,6 @@ const HomePageContainer = () => {
   }
 
   useEffect(() => {
-    fetchDataMeals({ mealType: mealType, page: 1 })
-  }, [])
-
-  useEffect(() => {
     if (mealType && page) {
       fetchDataMeals({ mealType: mealType, page })
     }

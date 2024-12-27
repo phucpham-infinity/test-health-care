@@ -29,22 +29,22 @@ const TopPageMealRecords: React.FC<TopPageMealRecordsProps> = ({
         onChangeMealType={onChangeMealType}
         categories={[
           {
-            id: 1,
+            id: 11,
             label: 'Breakfast',
             icon: <IconKnife />
           },
           {
-            id: 2,
+            id: 21,
             label: 'Lunch',
             icon: <IconKnife />
           },
           {
-            id: 3,
+            id: 31,
             label: 'Dinner',
             icon: <IconKnife />
           },
           {
-            id: 4,
+            id: 41,
             label: 'Snack',
             icon: <IconCup />
           }

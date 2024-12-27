@@ -6,7 +6,7 @@ const meals = ['Breakfast', 'Lunch', 'Dinner', 'Snack']
 const mealRecords = meals.reduce(
   (acc, meal) => {
     acc[meal] = Array.from({ length: 200 }, (_, i) => ({
-      id: i + 1,
+      id: (i + 1) * 3,
       time: getRandomTime(),
       type: meal,
       imageUrl: `https://picsum.photos/id/${getRandomNumber()}/200`

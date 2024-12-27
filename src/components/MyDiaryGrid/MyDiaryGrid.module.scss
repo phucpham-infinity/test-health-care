@@ -1,0 +1,65 @@
+@use '@/styles/variables' as *;
+
+.diary_grid {
+  text-align: center;
+  margin-top: $spacing-xxl;
+
+  h2 {
+    text-align: left;
+    padding-bottom: $spacing-xs;
+    color: #414141;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0.11px;
+  }
+
+  .grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 12px;
+    justify-content: space-between;
+  }
+}
+
+.diary_card {
+  width: 231px;
+  height: 231px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: $spacing-lg;
+  text-align: left;
+  background-color: #fff;
+
+  h3 {
+    color: $dark-500;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.09px;
+  }
+
+  p {
+    padding-top: $spacing-md;
+    color: $dark-500;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 17px; /* 141.667% */
+    letter-spacing: 0.06px;
+  }
+}
+
+.load_more{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: $spacing-xxl;
+  margin-bottom: $spacing-xxl;
+}

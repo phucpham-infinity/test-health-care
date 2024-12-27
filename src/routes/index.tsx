@@ -13,7 +13,7 @@ import NotFound from '@/pages/NotFound/NotFound'
 
 export const componentMap = {
   Home: () => import('@/pages/public/Home'),
-  MyRecord: () => import('@/pages/private/MyRecord'),
+  MyRecord: () => import('@/pages/public/MyRecord'),
   TopPage: () => import('@/pages/public/TopPage')
 }
 

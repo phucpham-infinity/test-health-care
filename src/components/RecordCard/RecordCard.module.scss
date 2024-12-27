@@ -1,6 +1,7 @@
 @use '@/styles/variables' as *;
 
 .card {
+  cursor: pointer;
   position: relative;
   width: 288px;
   height: 288px;

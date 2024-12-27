@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import styles from './MainLayout.module.scss'
 
 interface MainLayoutProps {
   children?: React.ReactNode
@@ -10,7 +11,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div>
       <Header />
-      {children}
+      <div className={styles.page_content}>{children}</div>
       <Footer
         links={[
           { label: '会員登録', href: '/' },
